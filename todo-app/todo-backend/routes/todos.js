@@ -2,6 +2,7 @@ const express = require('express');
 const { Todo } = require('../mongo')
 const mongoose = require('mongoose');
 const router = express.Router();
+const redis = require('../redis');
 
 /* Todo get routes */
 
@@ -11,15 +12,31 @@ router.get('/', async (_, res) => {
   res.send(todos);
 });
 
+router.get('/statistics', async (req, res) => {
+  try {
+    const currentCount = await redis.getAsync('todoCounter') || 0;
+    res.status(200).send({ added_todos: currentCount });
+  } catch (error) {
+    res.status(500).send({ message: 'Something went wrong getting the added todos count.' });
+  }
+});
+
 /* Todo post routes */
 
 /* POST todo to listing. */
 router.post('/', async (req, res) => {
-  const todo = await Todo.create({
-    text: req.body.text,
-    done: false
-  })
-  res.send(todo);
+  try {
+    const todo = await Todo.create({
+      text: req.body.text,
+      done: false
+    });
+    res.send(todo);
+    const currentCount = await redis.getAsync('todoCounter') || '0';
+    const newCount = parseInt(currentCount) + 1;
+    await redis.setAsync('todoCounter', newCount.toString());
+  } catch (error) {
+    res.status(500).send({ message: 'Something went wrong creating a todo.' })
+  }
 });
 
 const singleRouter = express.Router();

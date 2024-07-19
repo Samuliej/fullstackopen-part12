@@ -1,0 +1,2 @@
+GET http://localhost:3000/todos/statistics
+Content-Type: application/json
