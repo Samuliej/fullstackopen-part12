@@ -1,0 +1,6 @@
+2024-07-19 11:50:11 - docker start -i zen_brattain
+root@2b3c6503ea5b:/# apt-get update
+root@2b3c6503ea5b:/# apt-get -y install nano
+root@2b3c6503ea5b:/# nano /usr/src/app/index.js
+root@2b3c6503ea5b:/# exit
+
