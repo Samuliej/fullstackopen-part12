@@ -1,0 +1,8 @@
+2024-07-19 12:02:27 - docker start -i zen_brattain
+root@2b3c6503ea5b:/# cd /usr/src/app/
+root@2b3c6503ea5b:/usr/src/app# curl -sL https://deb.nodesource.com/setup_20.x | bash
+root@2b3c6503ea5b:/usr/src/app# apt-get install curl
+root@2b3c6503ea5b:/usr/src/app# curl -sL https://deb.nodesource.com/setup_20.x | bash
+root@2b3c6503ea5b:/usr/src/app# apt install -y nodejs
+root@2b3c6503ea5b:/usr/src/app# node index.js
+root@2b3c6503ea5b:/usr/src/app# exit
