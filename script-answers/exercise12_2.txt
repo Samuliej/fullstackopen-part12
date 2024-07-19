@@ -1,0 +1,9 @@
+2024-07-19 11:33:19 - docker container run hello-world
+2024-07-19 11:34:34 - docker run -it ubuntu bash
+root@2b3c6503ea5b:/# mkdir /usr/src/app
+root@2b3c6503ea5b:/# ls
+root@2b3c6503ea5b:/# touch -v /usr/src/app/index.js
+root@2b3c6503ea5b:/# touch /usr/src/app/index.js
+root@2b3c6503ea5b:/# cd usr/src/app/
+root@2b3c6503ea5b:/usr/src/app# ls
+root@2b3c6503ea5b:/usr/src/app# exit
