@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
     const newCount = parseInt(currentCount) + 1;
     await redis.setAsync('todoCounter', newCount.toString());
   } catch (error) {
-    res.status(500).send({ message: 'Something went wrong creating a todo.' })
+    res.status(500).send({ message: 'Something went wrong creating a todo.' });
   }
 });
 

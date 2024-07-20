@@ -1,0 +1,12 @@
+2024-07-20 11:53:53 - docker compose -f docker-compose.dev.yml up
+2024-07-20 11:54:27 - npm run dev
+2024-07-20 11:56:06 - docker ps
+2024-07-20 11:56:31 - docker exec -it todo-backend-redis-1 bash
+root@d0c6c04070aa:/data# redis-cli
+127.0.0.1:6379> KEYS *
+127.0.0.1:6379> GET todoCounter
+127.0.0.1:6379> SET todoCounter 9001
+127.0.0.1:6379> GET todoCounter
+127.0.0.1:6379> DEL todoCounter
+127.0.0.1:6379> GET todoCounter
+127.0.0.1:6379> GET todoCounter
