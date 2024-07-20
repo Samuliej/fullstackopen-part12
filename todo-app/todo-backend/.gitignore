@@ -60,3 +60,4 @@ node_modules
 .next
 
 mongo_data
+redis_data
