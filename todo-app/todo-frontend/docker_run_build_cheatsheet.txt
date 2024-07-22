@@ -1,0 +1,5 @@
+build docker that always runs tests
+docker build --target production-stage -t todo-frontend . --no-cache
+
+run the frontend in port 3000
+docker run -p 3000:3000 todo-frontend
