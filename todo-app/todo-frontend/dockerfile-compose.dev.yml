@@ -1,0 +1,16 @@
+version: "1"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: dev.Dockerfile
+    command: ["npm", "run", "dev", "--", "--host"]
+    ports:
+      - "5173:5173"
+    volumes:
+      - "./:/usr/src/app"
+      - node_modules:/usr/src/app/node_modules
+    restart: "no"
+
+volumes:
+  node_modules:
