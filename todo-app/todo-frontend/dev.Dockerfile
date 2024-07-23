@@ -1,4 +1,5 @@
-FROM node:20
+# Didn't work with node:20
+FROM node:16
 
 WORKDIR /usr/src/app
 
