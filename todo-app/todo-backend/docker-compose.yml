@@ -1,6 +1,24 @@
 services:
-  app:                    # The name of the service, can be anything
-    image: todo-server    # Declares which image to use
-    build: .              # Declares where to build if image is not found
-    ports:                # Declares the ports to publish
-      - 3000:3000
+  mongo:
+    image: mongo
+    ports:
+     - 3456:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    volumes:
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - mongo_data:/data/db
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    command: ['redis-server', '--appendonly', 'yes']
+    volumes:
+      - redis_data:/data
+
+volumes:
+  mongo_data:
+  redis_data:
