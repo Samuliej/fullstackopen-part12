@@ -1,10 +1,10 @@
-FROM node:20 AS base
+FROM node:16 AS base
 WORKDIR /usr/src/app
 
 FROM base AS build-stage
 COPY --chown=node:node . .
+ENV VITE_BACKEND_URL http://localhost:8080/api
 RUN npm ci
-ENV VITE_BACKEND_URL http://localhost:4000
 RUN npm run build
 
 FROM base AS production-stage
